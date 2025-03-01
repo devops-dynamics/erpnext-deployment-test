@@ -158,22 +158,30 @@ services:
       - logs:/home/frappe/frappe-bench/logs
 
   redis-queue:
-    image: redis:6.2-alpine
+    image: redislabs/redisearch:latest
     networks:
       - frappe_network
     deploy:
       restart_policy:
         condition: on-failure
+    command:
+      - redis-server
+      - --loadmodule
+      - /usr/lib/redis/modules/redisearch.so
     volumes:
       - redis-queue-data:/data
 
   redis-cache:
-    image: redis:6.2-alpine
+    image: redislabs/redisearch:latest
     networks:
       - frappe_network
     deploy:
       restart_policy:
         condition: on-failure
+    command:
+      - redis-server
+      - --loadmodule
+      - /usr/lib/redis/modules/redisearch.so
 
   scheduler:
     image: devopsdynamics/erpnext-custom:15.53.0
