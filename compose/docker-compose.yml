@@ -75,7 +75,7 @@ services:
           fi
         done;
         echo "sites/common_site_config.json found";
-        bench new-site --mariadb-user-host-login-scope='%' --admin-password=admin --db-root-username=root --db-root-password=admin --install-app erpnext --install-app hrms --install-app crm --install-app gameplan --install-app Raven --install-app education --install-app insights --install-app india-compliance --install-app helpdesk --install-app builder --install-app drive --install-app print_designer --install-app wiki --set-default frontend;
+        bench new-site --mariadb-user-host-login-scope='%' --admin-password=admin --db-root-username=root --db-root-password=admin --install-app erpnext --install-app hrms --install-app crm --install-app gameplan --install-app raven --install-app education --install-app insights --install-app india-compliance --install-app helpdesk --install-app builder --install-app drive --install-app print_designer --install-app wiki --set-default frontend;
 
   db:
     image: mariadb:10.6
